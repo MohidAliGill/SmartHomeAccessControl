@@ -1,21 +1,15 @@
 import React from 'react';
 import {
   SafeAreaView,
-  StatusBar,
   Text,
-  useColorScheme,
 } from 'react-native';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
-import { LockButton } from './src/components/LockButton';
+import { LockButtonWithStateText } from './src/components/LockButtonWithStateText';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: '#10401d',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -23,14 +17,10 @@ function App() {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <Text>Door Lock Handler</Text>
-      <LockButton />
+      <Text style={{fontSize: 30}} >Door Lock Handler</Text>
+      <LockButtonWithStateText />
     </SafeAreaView>
   );
-}
+};
 
 export default App;
